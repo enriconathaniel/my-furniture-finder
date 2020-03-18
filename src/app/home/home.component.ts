@@ -18,14 +18,14 @@ export class HomeComponent implements OnInit {
   filterDelivery: any;
   dataSource: any;
   placeholderName: string;
-  furnitureStyle: any;
+  furnitureStyle: any = [];
   deliveryOption: Array<DeliveryOption> = [
     { label: "1 week", value: 7 },
     { label: "2 weeks", value: 14 },
     { label: "1 month", value: 30 }
   ];
-  products: any;
-  dataFurniture: any;
+  products: any = [];
+  dataFurniture: any = [];
   furnitureStyleControl = new FormControl();
 
   constructor(private http: HttpClient) {}
