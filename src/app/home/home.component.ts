@@ -33,13 +33,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.placeholderName = 'Search Furniture';
     this.http
-      .get('http://www.mocky.io/v2/5c9105cb330000112b649af8')
+      .get('https://www.mocky.io/v2/5c9105cb330000112b649af8')
       .subscribe((data: any) => {
         if (data) {
           this.products = data;
           this.dataFurniture = _.cloneDeep(this.products);
           this.http
-            .get('http://www.mocky.io/v2/5c9105cb330000112b649af8')
+            .get('https://www.mocky.io/v2/5c9105cb330000112b649af8')
             .subscribe((dataStyle: any) => {
               if (dataStyle) {
                 this.furnitureStyle = dataStyle.furniture_styles;
