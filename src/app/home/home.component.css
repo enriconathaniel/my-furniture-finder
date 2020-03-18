@@ -1,0 +1,12 @@
+.w-100{width:100%!important}
+
+.description {
+    display: block;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: justify;
+    font-weight: initial;
+  }

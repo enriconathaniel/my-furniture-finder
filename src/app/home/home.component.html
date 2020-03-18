@@ -1,0 +1,71 @@
+<div class="w-100"
+  style="text-align: center; border: 1px solid; height: 90vh;">
+  <div style="display:flex; flex:1; background-color: aqua;
+  flex-direction: column; height: 10vh;">
+    <div style="display:flex; flex-direction: row; height: 50%;
+    align-items: center;">
+      <div style="width: 50%">
+        <input matInput
+          (ngModelChange)="onChangeFilter()"
+          type="text"
+          size="20"
+          class="form-control"
+          style="width: 80%; font-size: 1rem;"
+          placeholder="{{placeholderName}}" />
+      </div>
+    </div>
+    <div style="display:flex; flex-direction: row; height: 50%;
+    align-items: center;">
+      <div style="display:flex; flex:1;">
+        <mat-form-field>
+          <mat-label>Furniture Style</mat-label>
+          <mat-select multiple [(ngModel)]="filterStyle" (ngModelChange)="onChangeFilter()">
+            <mat-option *ngFor="let data of furnitureStyle"
+              [value]="data">{{data}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div style="flex:1;">
+        <mat-form-field>
+          <mat-label>Delivery Time</mat-label>
+          <mat-select multiple [(ngModel)]="filterDelivery" (ngModelChange)="onChangeFilter()">
+            <mat-option *ngFor="let data of deliveryOption"
+              [value]="data">{{data.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex; flex:1; background-color: darkgrey;
+  flex-direction: row; height: 80vh; width: 100%; flex-wrap: wrap;">
+    <ng-container *ngFor="let data of dataFurniture.products">
+      <div matRipple
+        [ngStyle]="{'height':'150px', 'width':'300px', 'cursor': 'pointer', 'background-color': 'white', 'margin': '2vh'}">
+        <div [ngStyle]="{'opacity': '1'}">
+          <div style="display: flex; justify-content: start; font-weight: bold; margin: 5px; flex-direction: column;">
+            <div style="display: flex; flex-direction: row;">
+              <div class="d-flex flex-grow-1 justify-content-center align-items-center">
+                {{data.name}}
+              </div>
+              <div style="text-align: end;">
+                {{data.price}}
+              </div>
+            </div>
+            <span class="description">{{data.description}}</span>
+            <ul style="text-align: justify;
+            margin: 0;
+            padding: 0;">
+              <li *ngFor="let style of data.furniture_style">
+                {{style}}
+              </li>
+            </ul>
+            <div style="text-align: end;">
+              {{data.delivery_time}}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
